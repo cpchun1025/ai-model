@@ -238,6 +238,7 @@ if prediction.should_create_parent:
 
 Create a Web API controller that exposes endpoints for prediction, both for single and batch processing.
 
+```csharp
 [ApiController]
 [Route("api/[controller]")]
 public class ConsolidationController : ControllerBase
@@ -263,11 +264,13 @@ public class ConsolidationController : ControllerBase
         return Ok(predictions);
     }
 }
+```
 
 ### Python Flask API Integration
 
 Create a Flask API that provides prediction endpoints for both single messages and batch processing.
 
+```python
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -288,6 +291,7 @@ def predict_batch():
 
 if __name__ == '__main__':
     app.run(debug=True)
+```
 
 ## Performance Considerations
 
