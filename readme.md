@@ -132,6 +132,7 @@ if prediction.should_create_parent:
     
     for child in prediction.predicted_children:
         print(f"  Child: {child.child_id}, Amount: {child.amount:.2f}")
+```
 
 ### Training Phase:
 
