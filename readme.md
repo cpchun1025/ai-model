@@ -47,9 +47,43 @@ The system handles these entity relationships:
 
 The .NET implementation uses ML.NET's FastTree algorithms for classification and regression, along with template-based content generation for predicting record data.
 
+```csharp
+// Train the models
+var engine = new ConsolidationEngine();
+engine.TrainModels("training_data.csv");
+engine.SaveModels("parent_model.zip", "child_model.zip", "templates.json");
+
+// Make predictions
+var input = new RawDataInput {
+    MessageId = "MSG12345",
+    ConversionId = "CONV789",
+    AmountValue = 1250.50f,
+    Category = "TypeA"
+};
+
+var prediction = engine.Predict(input);
+```
+
 ### Python Implementation
 
 The Python implementation uses scikit-learn's RandomForest algorithms for classification and regression, with similar template-based generation for content prediction.
+
+```python
+# Train the models
+engine = ConsolidationEngine()
+engine.train_models("training_data.csv")
+engine.save_models("parent_model.pkl", "child_model.pkl", "templates.json")
+
+# Make predictions
+input_data = {
+    'MessageId': 'MSG12345',
+    'ConversionId': 'CONV789',
+    'AmountValue': 1250.50,
+    'Category': 'TypeA'
+}
+
+prediction = engine.predict(input_data)
+```
 
 ## Required Training Data
 
